@@ -1,0 +1,6 @@
+Azure:
+az group create --name mdm-serving-ajrizple --location switzerlandnorth
+
+az appservice plan create --name mdm-serving-ajrizple --resource-group mdm-serving-ajrizple --sku F1 --is-linux
+
+az webapp create --resource-group mdm-serving-ajrizple --plan mdm-serving-ajrizple --name mdm-serving-ajrizple --multicontainer-config-type compose --multicontainer-config-file docker-compose.yml

@@ -21,7 +21,7 @@ function uploadImage() {
     const formData = new FormData();
     formData.append('image', input.files[0]);
 
-    fetch('http://localhost/analyze', {
+    fetch('/analyze', {
         method: 'POST',
         body: formData,
     })

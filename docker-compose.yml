@@ -4,20 +4,20 @@ services:
   web-service:
     depends_on:
       - model-service
-    image: pleuzhaw/consumerajrizple:latest
+    image: pleuzhaw/consumeajrizple:latest
     ports:
       - "80:8082"
     restart: always
     networks:
-      - app-network
+      - apps-network
 
   model-service:
     image: pleuzhaw/djl-serving:latest
     restart: always
     networks:
-      - app-network 
+      - apps-network 
 
 networks:
-  app-network:
+  apps-network:
     driver: bridge
 
