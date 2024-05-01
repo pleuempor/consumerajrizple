@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+  web-service:
+    depends_on:
+      - model-service
+    image: pleuzhaw/consumerajrizple:latest
+    ports:
+      - "80:8082"
+    restart: always
+    networks:
+      - app-network
+
+  model-service:
+    image: pleuzhaw/djl-serving:latest
+    restart: always
+    networks:
+      - app-network 
+
+networks:
+  app-network:
+    driver: bridge
+
